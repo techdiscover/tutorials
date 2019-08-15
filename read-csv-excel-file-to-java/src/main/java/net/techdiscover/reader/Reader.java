@@ -1,8 +1,10 @@
 package net.techdiscover.reader;
 
-import java.util.*;
+import net.techdiscover.Employee;
+
+import java.io.IOException;
+import java.util.List;
 
 public interface Reader {
-
-    List extractEmployeesFromFile(String filePath);
+    List<Employee> extractEmployeesFromFile(String filePath) throws IOException;
 }
