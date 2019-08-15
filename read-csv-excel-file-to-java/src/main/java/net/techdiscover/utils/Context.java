@@ -1,18 +1,19 @@
-package net.techdiscover;
+package net.techdiscover.utils;
 
+import net.techdiscover.model.Employee;
 import net.techdiscover.reader.Reader;
 
 import java.io.IOException;
 import java.util.List;
 
-class Context {
+public class Context {
     private Reader strategy;
 
-    Context(Reader strategy) {
+    public Context(Reader strategy) {
         this.strategy = strategy;
     }
 
-    List<Employee> extractEmployees(String filePath) throws IOException {
+    public List<Employee> extractEmployees(String filePath) throws IOException {
         return strategy.extractEmployeesFromFile(filePath);
     }
 }

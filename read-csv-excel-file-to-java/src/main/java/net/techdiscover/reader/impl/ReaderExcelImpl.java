@@ -1,6 +1,9 @@
-package net.techdiscover.reader;
+package net.techdiscover.reader.impl;
 
-import net.techdiscover.Employee;
+import net.techdiscover.utils.Context;
+import net.techdiscover.model.Employee;
+import net.techdiscover.utils.PrintFiles;
+import net.techdiscover.reader.Reader;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -12,7 +15,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ExcelReader implements Reader {
+public class ReaderExcelImpl implements Reader {
+    public static final String SRC_TEST_RESOURCES_EXCEL = "src/test/resources/excel";
+    private PrintFiles printEmployees = new PrintFiles();
+
+    public void readExcelFilesFromDisk() throws IOException {
+        PrintFiles.reader = new Context(new ReaderExcelImpl());
+        printEmployees.printEmployees(SRC_TEST_RESOURCES_EXCEL);
+    }
 
     public List<Employee> extractEmployeesFromFile(String filePath) throws IOException {
         List<Employee> employees = new ArrayList<>();
