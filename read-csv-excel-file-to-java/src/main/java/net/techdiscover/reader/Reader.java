@@ -1,6 +1,6 @@
 package net.techdiscover.reader;
 
-import net.techdiscover.Employee;
+import net.techdiscover.model.Employee;
 
 import java.io.IOException;
 import java.util.List;

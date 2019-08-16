@@ -1,4 +1,4 @@
-package net.techdiscover;
+package net.techdiscover.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,14 @@
 package net.techdiscover;
 
-import java.io.*;
+import net.techdiscover.reader.impl.ReaderCSVImpl;
+import net.techdiscover.reader.impl.ReaderExcelImpl;
+
+import java.io.IOException;
 
 public class App {
 
     public static void main(String[] args) throws IOException {
-        new FileReader().run();
+        new ReaderCSVImpl().readCSVFilesFromDisk();
+        new ReaderExcelImpl().readExcelFilesFromDisk();
     }
 }

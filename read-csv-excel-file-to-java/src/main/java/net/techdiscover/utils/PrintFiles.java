@@ -1,25 +1,16 @@
-package net.techdiscover;
+package net.techdiscover.utils;
 
 import java.io.*;
 import java.util.*;
-import net.techdiscover.reader.CSVReader;
-import net.techdiscover.reader.ExcelReader;
 
-class FileReader {
+import net.techdiscover.utils.Context;
+import net.techdiscover.model.Employee;
 
-    private static Context reader;
+public class PrintFiles {
 
-    void run() throws IOException {
-        readCSVFilesFromDisk();
-        readExcelFilesFromDisk();
-    }
+    public static Context reader;
 
-    private void readExcelFilesFromDisk() throws IOException {
-        reader = new Context(new ExcelReader());
-        printEmployees("src/test/resources/excel");
-    }
-
-    private void printEmployees(String pathname) throws IOException {
+    public void printEmployees(String pathname) throws IOException {
         File folder = new File(pathname);
         List<String> filePathList = getAllFilesFromPath(folder);
 
@@ -29,11 +20,6 @@ class FileReader {
                 System.out.println(employee.toString());
             }
         }
-    }
-
-    private void readCSVFilesFromDisk() throws IOException {
-        reader = new Context(new CSVReader());
-        printEmployees("src/test/resources/csv");
     }
 
     private List<String> getAllFilesFromPath(File file) {
